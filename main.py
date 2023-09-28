@@ -4,7 +4,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain.chains.question_answering import load_qa_chain
 from langchain.callbacks import get_openai_callback
 
-pdf = "pdfs/rr.pdf"
+pdf = "pdfs/dsm5.pdf"
 print(f"Creating a knowledge base for: {pdf}\n")
 knowledge_base = process_pdf(pdf)
 model_name = input("Provide a model name (defaults to `gpt-3.5-turbo`): ")
