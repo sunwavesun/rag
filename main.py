@@ -18,7 +18,6 @@ while True:
     if query:
         docs = knowledge_base.similarity_search(query)
         llm = ChatOpenAI(model_name=model_name)
-        # TODO: Difference between `chain_type`
         chain = load_qa_chain(llm, "stuff")
         with get_openai_callback() as cost:
             response = chain.run(input_documents=docs, question=query)
@@ -26,4 +25,3 @@ while True:
             print(f"Cost: {cost}\n")
     else:
         print("Not a valid question!\n")
-            
