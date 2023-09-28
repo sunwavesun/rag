@@ -1,5 +1,5 @@
 import __init__
-from __init__ import knowledge_base
+from pdf import process_pdf
 from flask import Flask, jsonify, request
 from langchain.chat_models import ChatOpenAI
 from langchain.chains.question_answering import load_qa_chain
@@ -7,6 +7,10 @@ from langchain.callbacks import get_openai_callback
 from search import run_query
 
 app = Flask(__name__)
+
+pdf = "pdfs/dsm5.pdf"
+print(f"Creating a knowledge base for: {pdf}\n")
+knowledge_base = process_pdf(pdf)
 
 @app.route("/ask", methods=["POST"])
 def ask():
